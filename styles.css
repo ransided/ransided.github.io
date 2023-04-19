@@ -1,0 +1,172 @@
+html {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+@font-face {
+  font-family: black-dread;
+  src: url("./sources/blackdread.otf")
+}
+
+@media screen and (min-width: 450px) {
+  .topnav .block {
+    margin: 18px;
+  }
+  
+  .largehead {
+    font-size: 7.9rem;
+  }
+  
+  .subheading {
+    padding-top: 150px;
+  }
+}
+
+@media screen and (max-width: 449px) {
+  .topnav .block {
+    margin: 9px;
+    padding-top: 10px;
+  }
+  
+  .largehead {
+    font-size: 7rem;
+  }
+  
+  .subheading {
+    padding-top: 160px;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .largehead {
+    padding-top: 20%;
+  }  
+}
+
+@media screen and (min-width: 450px) and (max-width: 999px) {
+  .subheading {
+    padding-top: 240px;
+  }
+}
+
+::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: #000000;
+  border-radius: 0;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #ffffff;
+}
+
+a:hover {
+  color: #CC5500;
+  cursor: pointer;
+}
+
+.topnav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  background-color: rgba(10, 10, 10, 0.75);
+}
+
+.topnav .block {
+  display: inline-block;
+}
+
+.topnav a {
+  font-family: courier;
+}
+
+/*
+.sidenav {
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: auto;
+  background-color: #0a0a0a;
+  float: left;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.sidenav a {
+  padding: 6px;
+  display: block;
+  font-family: courier;
+  margin: 0;
+}*/
+
+.right {
+  width: 100%;
+  height: 100%;
+  float: right;
+  overflow-x: scroll;
+}
+
+.heading {
+  text-align: center;
+  padding: 5%;
+  margin: auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 7%;
+}
+
+.subheading {
+  text-align: center;
+  position: absolute;
+}
+
+.largehead {
+  font-family: black-dread;
+}
+
+.smallhead {
+  font-family: courier;
+  font-size: 0.5rem;
+}
+
+.infoblock {
+  width: 75%;
+  margin: auto;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.small {
+  font-family: courier;
+  font-size: 2rem;
+  font-weight: bold;
+
+}
+
+.textblock {
+  font-family: courier;
+  font-size: 1.2rem;
+}
+
+.textblock img {
+  padding-top: 10px;
+}
+
+.textblock a {
+  padding-right: 30px;
+}
