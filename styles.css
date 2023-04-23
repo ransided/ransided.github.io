@@ -28,6 +28,11 @@ html {
     padding-top: 10px;
   }
   
+  .topnav {
+    text-align: center;
+    overflow-x: scroll;
+  }
+  
   .largehead {
     font-size: 7rem;
   }
@@ -76,7 +81,7 @@ html {
 }
 
 @media screen and (max-width: 550px) {
-  .linkblock {
+  .linkblock p {
     overflow-x: scroll;
     width: 160% !important;
   }
@@ -151,19 +156,19 @@ a:hover {
   overflow-x: scroll;
 }
 
-.heading {
+.heading, .subheading {
   text-align: center;
-  padding: 5%;
+  padding: 5% 5% 0 5%;
   margin: auto;
   width: 50%;
   display: flex;
   justify-content: center;
-  padding-bottom: 7%;
+  position: flex;
 }
 
 .subheading {
-  text-align: center;
-  position: absolute;
+  padding-top: 0;
+  padding-bottom: 7%;
 }
 
 .largehead {
