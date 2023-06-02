@@ -215,3 +215,7 @@ a:hover {
 .linkblock {
   overflow-x: scroll;
 }
+
+#shows a {
+  text-decoration: underline;
+}
