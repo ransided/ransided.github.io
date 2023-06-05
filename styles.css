@@ -1,11 +1,37 @@
 html {
-  background-color: #000000;
   color: #ffffff;
+  background: #000000 url("./images/space.gif") round;
 }
 
 @font-face {
   font-family: black-dread;
   src: url("./sources/blackdread.otf")
+}
+
+@keyframes text-color {
+  0% {
+    color: #ffffff;
+  }
+  
+  20% {
+    color: #ff0000;
+  }
+  
+  40% {
+    color: #fef601;
+  }
+  
+  60% {
+    color: #00bb00;
+  }
+  
+  80% {
+    color: #007efe;
+  }
+  
+  100% {
+    color: #46019b;
+  }
 }
 
 @media screen and (min-width: 450px) {
@@ -95,11 +121,11 @@ html {
 ::-webkit-scrollbar {
   height: 0;
   width: 0;
-  background: #000000;
+  background: rgba(0,0,0,0);
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
-  background: #000000;
+  background: rgba(0,0,0,0);
   border-radius: 0;
 }
 
@@ -136,16 +162,14 @@ a:hover {
 
 .sidenav {
   height: 100%;
-  width: 15%;
+  width: 16%;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   overflow-x: auto;
-  background-color: #0a0a0a;
+  background-color: rgba(10, 10, 10, 0.9);
   float: left;
-  padding-top: 20px;
-  padding-left: 10px;
 }
 
 .sidenav a {
@@ -153,6 +177,11 @@ a:hover {
   display: block;
   font-family: courier;
   margin: 0;
+  padding: 1.25em;
+}
+
+.sidenav nav {
+  width: 100%;
 }
 
 .right {
@@ -169,6 +198,11 @@ a:hover {
   display: flex;
   justify-content: center;
   position: flex;
+  
+  animation-name: text-color;
+  animation-duration: 75s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
 }
 
 .subheading {
@@ -189,14 +223,17 @@ a:hover {
   width: 75%;
   margin: auto;
   justify-content: center;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  background-color: rgba(10, 10, 10, 0.5);
+  padding: 14px;
 }
 
-.small {
+.infoblock .small {
   font-family: courier;
   font-size: 2rem;
   font-weight: bold;
-
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 14px;
 }
 
 .textblock {
@@ -204,8 +241,15 @@ a:hover {
   font-size: 1.2rem;
 }
 
+.textblock:not(.linkblock) {
+  padding-left: 14px;
+}
+
 .textblock img {
   padding-top: 10px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .textblock .link {
