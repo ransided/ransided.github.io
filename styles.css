@@ -5,7 +5,7 @@ html {
 
 @font-face {
   font-family: black-dread;
-  src: url("./sources/blackdread.otf")
+  src: url("./sources/blackdread.otf") format("opentype");
 }
 
 @keyframes text-color {
