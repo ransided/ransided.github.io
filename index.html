@@ -10,7 +10,20 @@
     
     <link rel="icon" type="image/x-icon" href="./images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
-    <link rel="preload" href="./sources/blackdread.otf" as="blackdread" type="font/otf" crossorigin="anonymous" />
+    <link rel="preload" href="./sources/blackdread.otf" as="style" />
+    
+    <style>
+      @font-face {
+        font-family: black-dread;
+        src: url("./sources/blackdread.otf") format("opentype");
+        font-display: fallback;
+      }
+      
+      .largehead {
+        font-family: black-dread;
+      }
+    </style>
+    
     <script src="https://kit.fontawesome.com/eb84c79a5e.js" crossorigin="anonymous"></script>
         
     <title>Ransided</title>
@@ -44,7 +57,7 @@
       </div>
       
       <div class=subheading>
-        <span class=smallhead>(Ransided)</span>
+        <span class=smallhead>(Ransid<span id=s>e</span>d)</span>
       </div>
       
       <div id=about class=infoblock>
@@ -77,15 +90,21 @@
       
       <div id=gallery class=infoblock>
         <div class=small>Gallery</div>
-        <div class=textblock>
-          <p>
-            <img src="./images/1.jpg" width=300 height=400 />
-            <img src="./images/2.jpg" width=300 height=400 />
-            <img src="./images/evan.png" />
-            <img src="./images/3.jpg" width=300 height=400 />
-            <img src="./images/4.jpg" width=500 height=400 />
-            <img src="./images/5.jpg" width=800 height=600 />
-          </p>
+        <div class="textblock imgblock">
+          <div id=slide>
+            <div id=imgcount class=imgcount>0</div>
+          
+            <img src="./images/1.jpg" class="slideimg vertical" />
+            <img src="./images/bk.jpg" class="slideimg vertical" />
+            <img src="./images/2.jpg"  class="slideimg vertical" />
+            <img src="./images/3.jpg" class="slideimg vertical" />
+            <img src="./images/4.jpg" class="slideimg horizontal" />
+            <img src="./images/evan.png" class="slideimg special" />
+            <img src="./images/5.jpg" class="slideimg horizontal" />
+            
+            <a class=prev onclick="next(-1)">&#10094;</a>
+            <a class=next onclick="next(1)">&#10095;</a>
+          </div>
         </div>
       </div>
       
@@ -96,5 +115,15 @@
         </div>
       </div>
     </div>
+    
+    <script>
+      var s = document.getElementById("s");
+      s.onclick = function() {
+        if(window.innerWidth >= 370)
+          window.location.href = "./sources/clicker.html";
+      }
+    </script>
+    
+    <script src="./sources/gallery.js"></script>
   </body>
 </html>

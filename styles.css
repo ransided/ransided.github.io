@@ -1,11 +1,7 @@
 html {
   color: #ffffff;
-  background: #000000 url("./images/space.gif") round;
-}
-
-@font-face {
-  font-family: black-dread;
-  src: url("./sources/blackdread.otf") format("opentype");
+  background: #000000 url("./images/space.gif");
+  font-family: courier;
 }
 
 @keyframes text-color {
@@ -67,10 +63,23 @@ html {
     padding-top: 160px;
   }
   
-  .textblock img {
+  #slide, .textblock img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+  
+  #gallery {
+    height: 400px !important;
+  }
+  
+  #slide {
+    height: 300px !important;
+  }
+  
+  #imgcount {
+    font-size: 0.6rem !important;
+    padding-top: 6px !important;
   }
 }
 
@@ -118,6 +127,28 @@ html {
   }
 }
 
+@media screen and (max-width: 375px) {
+  .topnav .block {
+    margin: 6px;
+    padding-top: 15px;
+  }
+}
+
+@media screen and (max-width: 345px) {
+  .largehead {
+    font-size: 4.8rem;
+    padding-top: 35%;
+  }
+  
+  .topnav .block {
+    font-size: 10px;
+  }
+  
+  .topnav {
+    height: 60px !important;
+  }
+}
+
 ::-webkit-scrollbar {
   height: 0;
   width: 0;
@@ -150,14 +181,17 @@ a:hover {
   height: 60px;
   position: fixed;
   background-color: rgba(10, 10, 10, 0.75);
+  overflow-x: visible;
+  z-index: 1;
+}
+
+.topnav nav {
+  overflow-x: visible;
+  white-space: nowrap;
 }
 
 .topnav .block {
   display: inline-block;
-}
-
-.topnav a {
-  font-family: courier;
 }
 
 .sidenav {
@@ -172,10 +206,9 @@ a:hover {
   float: left;
 }
 
-.sidenav a {
+.sidenav a, .sidenav p {
   padding: 6px;
   display: block;
-  font-family: courier;
   margin: 0;
   padding: 1.25em;
 }
@@ -210,12 +243,7 @@ a:hover {
   padding-bottom: 7%;
 }
 
-.largehead {
-  font-family: black-dread;
-}
-
 .smallhead {
-  font-family: courier;
   font-size: 0.5rem;
 }
 
@@ -229,7 +257,6 @@ a:hover {
 }
 
 .infoblock .small {
-  font-family: courier;
   font-size: 2rem;
   font-weight: bold;
   background-color: rgba(0, 0, 0, 0.9);
@@ -237,23 +264,90 @@ a:hover {
 }
 
 .textblock {
-  font-family: courier;
   font-size: 1.2rem;
+  overflow-x: scroll;
 }
 
-.textblock:not(.linkblock) {
+.textblock:not(.linkblock, .imgblock) {
   padding-left: 14px;
 }
 
-.textblock img {
-  padding-top: 10px;
-  display: inline-block;
+.slideimg {
+  width: 100%;
+  height: 100%;
+}
+
+#imgcount {
+  position: absolute;
+  top: 0;
+  padding-top: 12px;
+  padding-left: 8px;
+  font-size: 0.8rem;
+  user-select: none;
+}
+
+#gallery {
+  height: 80vh;
+  padding-left: -14px !important;
+}
+
+#slide {
+  padding-top: 1em;
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 65vh;
+}
+
+#slide .slideimg {
+  object-position: center;
+  overflow: hidden;
   margin-left: auto;
   margin-right: auto;
+  z-index: -1;
+}
+
+.vertical {
+  width: 40%;
+  aspect-ratio: 9/16;
+}
+
+.horizontal {
+  width: 71.11%;
+  aspect-ratio: 16/9;
+}
+
+.special {
+  width: 35%;
+  aspect-ratio: 9/16; 
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.slideimg {
+  display: none;
 }
 
 .textblock .link {
   padding-right: 30px;
+  white-space: nowrap;
 }
 
 .linkblock {

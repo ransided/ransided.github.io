@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="../styles.css" />
+    <link rel="preload" href="./blackdread.otf" as="style" />
+    
+    <style>
+      @font-face {
+        font-family: black-dread;
+        src: url("./blackdread.otf") format("opentype");
+        font-display: fallback;
+      }
+      
+      .largehead {
+        font-family: black-dread;
+      }
+    </style>
+        
+    <title>Secret Ransided Clicker</title>
+  </head>
+
+  <body>
+    <div class=sidenav>
+      <nav>
+        <a href="/">Home</a>
+        <p style="padding-bottom: 1.5em;">!-- Upgrades --!</p>
+        <ul>
+          <li>
+            <li>Clicks per click</li>
+            <ul>
+              <li>Currently: <span id=cpc-count>1</span></li>
+              <li>Price: 1000 clicks</li>
+              <li><button id=cpc class=upbut>Upgrade</button></li>
+            </ul>
+          </li>
+          
+          <li>
+            <li>Auto clicks per second</li>
+            <ul>
+              <li>Currently: <span id=ac-count>0</span></li>
+              <li>Price: 250 clicks</li>
+              <li><button id=ac class=upbut>Upgrade</button></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    
+    <div class=right>
+      <div id=counter>0</div>
+    
+      <div id=button class=infoblock>
+        <div class=heading>
+          <span class="largehead button">Click me!</span>
+        </div>
+        
+        <div class=subheading>
+          <span class=smallhead>(Click me!)</span>
+        </div>
+      </div>
+    </div>
+    
+    <style>    
+      @media screen and (max-width: 600px) and (min-width: 400px) {        
+        .largehead {
+          margin-top: 160%;
+        }
+      }
+      
+      @media screen and (min-width: 601px) {        
+        .largehead {
+          margin-top: 90%;
+        }
+        
+        .sidenav {
+          width: 16%;
+        }
+        
+        .right {
+          width: 84%;
+        }
+      }
+      
+      @media screen and (max-width: 600px) {
+        .sidenav {
+          width: 30%;
+        }
+        
+        .right {
+          width: 70%;
+        }
+      }
+      
+      @media screen and (max-width: 399px) {
+        .largehead {
+          margin-top: 250%;
+        }
+      }
+      
+      ul {
+        list-style-type: none;
+        padding: 6px;
+        padding: 1.25em;
+        margin: 0;
+        padding-top: 2px;
+      }
+      
+      .sidenav {
+        display: block !important;
+        overflow-x: scroll;
+      }
+      
+      .smallhead, .subheading {
+        padding-bottom: 0;
+      }
+      
+      .infoblock {
+        background-color: rgba(0,0,0,0);
+      }
+      
+      .largehead, .smallhead, #counter {
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      
+      .largehead, .heading {
+        padding-top: 0;
+        margin-top: 0;
+      }
+      
+      #counter {
+        text-align: center;
+        padding-top: 15%;
+        padding-bottom: 13%;
+        font-size: 5em;
+        font-family: courier;
+      }
+      
+      #button:hover {
+        cursor: pointer;
+      }
+    </style>
+    
+    <script>
+      function init() {
+        if(localStorage.getItem("clickCount") === null) {
+          localStorage.setItem("clickCount", "0");
+        }
+        
+        if(localStorage.getItem("clicksPerClick") === null) {
+          localStorage.setItem("clicksPerClick", "1");
+        }
+        
+        if(localStorage.getItem("autoClick") === null) {
+          localStorage.setItem("autoClick", "0");
+        }
+        
+        return;
+      }
+    
+      var c = document.getElementById("counter");
+      var cpcCount = document.getElementById("cpc-count");
+      var acCount = document.getElementById("ac-count");
+      
+      var b = document.getElementById("button");
+      var cpc = document.getElementById("cpc");
+      var ac = document.getElementById("ac");
+      
+      var t = setInterval(function () {
+        init();
+        
+        var curr = (parseInt(localStorage.getItem("clickCount")) + parseInt(localStorage.getItem("autoClick"))).toString();
+        
+        localStorage.setItem("clickCount", curr);
+        c.innerHTML = curr;
+      }, 1e3);
+      
+      init();
+      
+      c.innerHTML = localStorage.getItem("clickCount");
+      cpcCount.innerHTML = localStorage.getItem("clicksPerClick");
+      acCount.innerHTML = localStorage.getItem("autoClick");
+      
+      b.onclick = function() {
+        init();
+      
+        var currentCount = `${parseInt(localStorage.getItem("clickCount")) + parseInt(localStorage.getItem("clicksPerClick"))}`;
+        localStorage.setItem("clickCount", currentCount);
+        
+        c.innerHTML = currentCount;
+      }
+      
+      cpc.onclick = function() {
+        init();
+        
+        var curr = parseInt(localStorage.getItem("clickCount"));
+        if(curr >= 1000) {
+          localStorage.setItem("clickCount", `${curr - 1000}`);
+          localStorage.setItem("clicksPerClick", `${parseInt(localStorage.getItem("clicksPerClick")) + 1}`);
+          
+          cpcCount.innerHTML = localStorage.getItem("clicksPerClick");
+          c.innerHTML = (curr - 1000).toString();
+        }
+      }
+      
+      ac.onclick = function() {
+        init();
+        
+        var curr = parseInt(localStorage.getItem("clickCount"));
+        if(curr >= 250) {
+          localStorage.setItem("clickCount", `${curr - 250}`);
+          localStorage.setItem("autoClick", `${parseInt(localStorage.getItem("autoClick")) + 1}`);
+          
+          acCount.innerHTML = localStorage.getItem("autoClick");
+          c.innerHTML = (curr - 250).toString();
+        }
+      }
+    </script>
+  </body>
+</html>
