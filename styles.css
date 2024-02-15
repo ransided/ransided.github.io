@@ -103,6 +103,26 @@ html {
   }
 }
 
+@media screen and (min-width: 560px) {
+  .right-links, .left-links {
+    display: inline-block;
+  }
+  
+  .full-links {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .right-links, .left-links {
+    display: none;
+  }
+  
+  .full-links {
+    display: block;
+  }
+}
+
 @media screen and (min-width: 450px) and (max-width: 999px) {
   .subheading {
     padding-top: 240px;
@@ -262,7 +282,7 @@ a:hover {
   overflow-x: scroll;
 }
 
-.textblock:not(.linkblock, .imgblock) {
+.textblock:not(.imgblock) {
   padding-left: 14px;
 }
 
@@ -277,6 +297,18 @@ a:hover {
 
 .linkblock {
   overflow-x: scroll;
+}
+
+.left-links {
+  min-width: 100px;
+}
+
+.right-links {
+  min-width: 100px;
+}
+
+i {
+  margin-right: 10px;
 }
 
 #shows a {
