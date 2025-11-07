@@ -1,7 +1,7 @@
 html {
   color: #ffffff;
   background: #000000 url("./images/space.gif");
-  font-family: "Courier New", courier, monospace;
+  font-family: "Courier New", courier, monospace; /* better options :D */
 }
 
 @keyframes text-color {
@@ -316,4 +316,5 @@ i {
 .showlinks a {
   text-decoration: underline;
 }
+
 
